@@ -26,10 +26,10 @@
 	%>
  --%>
 	<img alt="" src="images/CMlogohomebt.png" width="100" height="100"
-		onclick="location.href='../Cover.html'" onmouseover="">
+		onclick="location.href='Cover.jsp'" onmouseover="">
 	<div id="createForm1">
 		<img alt="" src="images/CMlogoom.png" width="200" height="200"
-			onclick="location.href='Menu.html'">
+			onclick="location.href='Cover.jsp'">
 	</div>
 	<form name="frm" onsubmit="return chk(n)">
 		<div id="createForm2">

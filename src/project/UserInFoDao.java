@@ -7,7 +7,7 @@ import javax.sql.*;
 public class UserInFoDao {
 	private static UserInFoDao instance; // = new MemberDao();
 	private UserInFoDao() {}
-	public static UserInFoDao getInstance() {//½Ì±ÛÅæ Çü½Ä,½Ì±ÛÅæ ¾ÈÇÏ¸é °´Ã¼¸¦ °è¼Ó È£Ãâ
+	public static UserInFoDao getInstance() {//ï¿½Ì±ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½,ï¿½Ì±ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ï¸ï¿½ ï¿½ï¿½Ã¼ï¿½ï¿½ ï¿½ï¿½ï¿½ È£ï¿½ï¿½
 		if(instance==null) instance=new UserInFoDao();
 		return instance;
 	}
@@ -71,4 +71,78 @@ public class UserInFoDao {
 		}
 		return result;
 	}
+	public UserInFo select(String email) throws SQLException {
+		System.out.println("email = "+email);
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		String sql = "select * from UserInFo where email = ?";
+		UserInFo ui = new UserInFo();
+		try { 
+			conn = getConnection();
+			pstmt  = conn.prepareStatement(sql);
+			pstmt.setString(1, email);
+			rs = pstmt.executeQuery();
+			if (rs.next()) {
+				ui.setEmail(rs.getString("email"));
+				ui.setPassword(rs.getString("password"));
+				ui.setPhone(rs.getString("phone"));
+				ui.setName(rs.getString("name"));
+			} else System.out.println("ì—†ë„¤");
+			System.out.println("name ="+ui.getName());
+		} catch(Exception e) {
+			System.out.println(e.getMessage());
+		} finally {
+			if (rs != null)
+				rs.close();
+			if (pstmt != null)
+				pstmt.close();
+			if (conn != null)
+				conn.close();
+		}
+		return ui;
+	}
+	public int update(UserInFo ui) throws SQLException {
+		int result = 0;
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		String sql="update UserInFo set password=?, phone=?, name=? where email=?";
+		try { 
+			conn = getConnection();
+			pstmt  = conn.prepareStatement(sql);			
+			pstmt.setString(1, ui.getPassword());
+			pstmt.setString(2, ui.getPhone());
+			pstmt.setString(3, ui.getName());
+			pstmt.setString(4, ui.getEmail());
+			result = pstmt.executeUpdate();
+		} catch(Exception e) {
+			System.out.println(e.getMessage());
+		} finally {			
+			if (pstmt != null)
+				pstmt.close();
+			if (conn != null)
+				conn.close();
+		}
+		return result;
+	}
+	public int delete(String email) throws SQLException {
+	      int result = 0;
+	      Connection conn = null;
+	      PreparedStatement pstmt = null;
+	      String sql = "delete from UserInFo where email=?";
+	      try {
+	         conn = getConnection();
+	         pstmt = conn.prepareStatement(sql);
+	         pstmt.setString(1, email);
+	         result = pstmt.executeUpdate();
+	      } catch (Exception e) {
+	         System.out.println(e.getMessage());
+	      } finally {
+	         if (pstmt != null)
+	            pstmt.close();
+	         if (conn != null)
+	            conn.close();
+	      }
+	      return result;
+	   }
 }

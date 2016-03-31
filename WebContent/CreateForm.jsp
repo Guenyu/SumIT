@@ -72,7 +72,7 @@
 				<tr>
 					<td colspan="3" align="center">
 						<button onclick="chk(1)">확인</button> &nbsp
-						<button onclick="location.href='Menu.html'">취소</button>
+						<button onclick="location.href='Cover.jsp'">취소</button>
 					</td>
 				</tr>
 			</table>

@@ -10,7 +10,7 @@
 <body>
 <c:if test="${result>0}">
 	<script type="text/javascript">
-		location.href="mypage.jsp?name=${name}";
+		location.href="Mypage.jsp?name=${name}";
 		</script>
 </c:if>
 <c:if test="${result==0}">

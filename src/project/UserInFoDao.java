@@ -25,7 +25,11 @@ public class UserInFoDao {
 	public int insert(UserInFo user) throws SQLException{
 		int result=0; Connection conn=null;
 		PreparedStatement pstmt=null;
+<<<<<<< HEAD
 		String sql="insert into UserInFo values(?,?,?,?,?,?,?,?)";
+=======
+		String sql="insert into UserInFo values(?,?,?,?)";
+>>>>>>> 043a58ba5749ac08c2fe3b6cf48f806a9d158702
 		try {
 			conn=getConnection();
 			pstmt=conn.prepareStatement(sql);
@@ -72,7 +76,7 @@ public class UserInFoDao {
 		}
 		return result;
 	}
-	public UserInFo select(String email) throws SQLException {
+	public UserInFo select(String email) {
 		System.out.println("email = "+email);
 		Connection conn = null;
 		PreparedStatement pstmt = null;
@@ -94,12 +98,14 @@ public class UserInFoDao {
 		} catch(Exception e) {
 			System.out.println(e.getMessage());
 		} finally {
-			if (rs != null)
-				rs.close();
-			if (pstmt != null)
-				pstmt.close();
-			if (conn != null)
-				conn.close();
+			try {				
+				if (rs != null)
+					rs.close();
+				if (pstmt != null)
+					pstmt.close();
+				if (conn != null)
+					conn.close();
+			} catch (Exception e) { }
 		}
 		return ui;
 	}

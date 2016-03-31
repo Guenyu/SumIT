@@ -1,15 +1,25 @@
 create table UserInFo(
-	email varchar2(30) primary key,-- ÀÌ¸ŞÀÏ key
-	password varchar2(12) not null,-- ¾ÏÈ£
-	phone varchar2(15) not null,--Æù³Ñ¹ö Å©±â ´Ã·Á¾ßµÊ...1¸¸ ´õ´Ã¸®±â
-	--addrs1 varchar2(100) not null,--±âº»ÁÖ¼Ò
-	--addrs2 varchar2(100) not null,--»ó¼¼ÁÖ¼Ò
-	--addrs3 varchar2(100) not null, --¿ìÆíÁÖ¼Ò
-	name varchar2(20) not null,--ÀÌ¸§
-	--gender varchar2(4) not null
+	id varchar2(30) primary key,--ì•„ì´ë””
+	password varchar2(30) not null,--ë¹„ë°€ë²ˆí˜¸
+	name varchar2(15) not null,--ì´ë¦„
+	age varchar2(30) not null,--ìƒë…„ì›”ì¼
+	email varchar2(30) not null,--ì´ë©”ì¼
+	addr varchar2(50),--ì£¼ì†Œ
+	phone varchar2(20) not null,--ì „í™”ë²ˆí˜¸
+	gender char(1) not null--ì„±ë³„
 );
-alter table board1 add (del_yn char(1) default 'n');
-update  board1 set del_yn = 'n';
 select * from UserInFo;
 drop table UserInFo;
-select password from UserInFo where email = 'as@as2';
+
+-----------------------------------------------
+
+create table schedule(
+	writer varchar2(30) primary key,--ë“±ë¡ì
+	content varchar2(30) not null,--ë‚´ìš©
+	title varchar2(15) not null,--ì œëª©
+	seq number(10) not null,--ì‹œí€€ìŠ¤(ë²ˆí˜¸)
+	reg_date date--ë“±ë¡ì¼
+);
+select * from schedule;
+drop table schedule;
+

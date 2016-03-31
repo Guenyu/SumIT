@@ -25,7 +25,7 @@ public class UserInFoDao {
 	public int insert(UserInFo user) throws SQLException{
 		int result=0; Connection conn=null;
 		PreparedStatement pstmt=null;
-		String sql="insert into UserInFo values(?,?,?,?,?)";
+		String sql="insert into UserInFo values(?,?,?,?)";
 		try {
 			conn=getConnection();
 			pstmt=conn.prepareStatement(sql);

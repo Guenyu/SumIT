@@ -1,10 +1,10 @@
 create table UserInFo(
-	id varchar2(30) primary key,--아이디
+	email varchar2(30) primary key,--이메일
 	password varchar2(30) not null,--비밀번호
 	name varchar2(15) not null,--이름
 	age varchar2(30) not null,--생년월일
-	email varchar2(30) not null,--이메일
-	addr varchar2(50),--주소
+	id varchar2(30) not null,--아이디
+	addr varchar2(50) not null,--주소
 	phone varchar2(20) not null,--전화번호
 	gender char(1) not null--성별
 );

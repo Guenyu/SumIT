@@ -12,7 +12,7 @@
 %>
 		<script type="text/javascript">
 			alert("수정 완료");
-			location.href="mypage.jsp";
+			location.href="Mypage.jsp";
 		</script>
 <%
 	} else {

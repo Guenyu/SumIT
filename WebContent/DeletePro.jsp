@@ -19,7 +19,7 @@
 %>
    <script type="text/javascript">
       alert("안녕히....ㅠㅠ");
-      location.href = "Menu.html";
+      location.href = "Cover.jsp";
    </script>
 <%
 		} else {

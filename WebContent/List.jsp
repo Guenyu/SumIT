@@ -8,6 +8,6 @@
 </head>
 <body>
 <body>
-일정 24주차
+일정 25주차
 </body>
 </html>

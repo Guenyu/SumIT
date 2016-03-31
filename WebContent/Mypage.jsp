@@ -12,7 +12,8 @@
 		<ul>
 			<li><a href="Main.jsp">홈</a></li>
 			<li><a href="List.jsp">내 예약 일정</a></li>
-			<li><a href="UpdateForm">개인 정보 수정</a></li>
+			<li><a href="UpdateForm.do">개인 정보 수정</a></li>
+			<li><a href="DeleteForm.jsp">탈퇴</a></li>
 			<li><a href="logout.jsp">로그아웃</a></li>
 		</ul>
 </body>

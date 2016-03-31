@@ -71,7 +71,7 @@ public class UserInFoDao {
 		}
 		return result;
 	}
-	public UserInFo select(String email) throws SQLException {
+	public UserInFo select(String email) {
 		System.out.println("email = "+email);
 		Connection conn = null;
 		PreparedStatement pstmt = null;
@@ -93,12 +93,14 @@ public class UserInFoDao {
 		} catch(Exception e) {
 			System.out.println(e.getMessage());
 		} finally {
-			if (rs != null)
-				rs.close();
-			if (pstmt != null)
-				pstmt.close();
-			if (conn != null)
-				conn.close();
+			try {				
+				if (rs != null)
+					rs.close();
+				if (pstmt != null)
+					pstmt.close();
+				if (conn != null)
+					conn.close();
+			} catch (Exception e) { }
 		}
 		return ui;
 	}

@@ -7,7 +7,7 @@ import javax.sql.*;
 public class UserInFoDao {
 	private static UserInFoDao instance; // = new MemberDao();
 	private UserInFoDao() {}
-	public static UserInFoDao getInstance() {//�̱��� ����,�̱��� ���ϸ� ��ü�� ��� ȣ��
+	public static UserInFoDao getInstance() {//占싱깍옙占쏙옙 占쏙옙占쏙옙,占싱깍옙占쏙옙 占쏙옙占싹몌옙 占쏙옙체占쏙옙 占쏙옙占� 호占쏙옙
 		if(instance==null) instance=new UserInFoDao();
 		return instance;
 	}
@@ -25,7 +25,12 @@ public class UserInFoDao {
 	public int insert(UserInFo user) throws SQLException{
 		int result=0; Connection conn=null;
 		PreparedStatement pstmt=null;
+<<<<<<< HEAD
 		String sql="insert into UserInFo values(?,?,?,?,?,?,?)";
+=======
+		String sql="insert into UserInFo values(?,?,?,?,?,?,?,?)";
+
+>>>>>>> b6d3a744cad172a2bb11e7ca25077ed47cfa5693
 		try {
 			conn=getConnection();
 			pstmt=conn.prepareStatement(sql);
@@ -88,7 +93,7 @@ public class UserInFoDao {
 				ui.setPassword(rs.getString("password"));
 				ui.setPhone(rs.getString("phone"));
 				ui.setName(rs.getString("name"));
-			} else System.out.println("없네");
+			} else System.out.println("�뾾�꽕");
 			System.out.println("name ="+ui.getName());
 		} catch(Exception e) {
 			System.out.println(e.getMessage());

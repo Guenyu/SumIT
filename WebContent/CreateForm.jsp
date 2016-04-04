@@ -27,7 +27,7 @@
 		<div id="createForm2">
 			<table>
 				<tr>
-					<th>E-mail</th>
+					<th>Email</th>
 					<td colspan="2"><input type="email" required="required"
 						placeholder="e-mail" name="email">&nbsp; <input type="button" value="Redundancy check" onclick="select_member_check();" /></td>
 				</tr>

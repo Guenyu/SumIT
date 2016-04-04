@@ -4,10 +4,10 @@ public class UserInFo {
 	private String email;
 	private String password;
 	private String name;
-	private String age;
-	private String addr;
+/*	private String age;
+	private String addr;*/
 	private String phone;
-	private String gender;
+/*	private String gender;*/
 	public String getEmail() {
 		return email;
 	}
@@ -26,7 +26,7 @@ public class UserInFo {
 	public void setName(String name) {
 		this.name = name;
 	}
-	public String getAge() {
+	/*public String getAge() {
 		return age;
 	}
 	public void setAge(String age) {
@@ -37,18 +37,18 @@ public class UserInFo {
 	}
 	public void setAddr(String addr) {
 		this.addr = addr;
-	}
+	}*/
 	public String getPhone() {
 		return phone;
 	}
 	public void setPhone(String phone) {
 		this.phone = phone;
 	}
-	public String getGender() {
+/*	public String getGender() {
 		return gender;
 	}
 	public void setGender(String gender) {
 		this.gender = gender;
-	}
+	}*/
 	
 }

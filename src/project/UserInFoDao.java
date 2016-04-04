@@ -28,13 +28,14 @@ public class UserInFoDao {
 		String sql="insert into UserInFo values(?,?,?,?)";
 		try {
 			conn=getConnection();
+			System.out.println("email = "+user);
 			pstmt=conn.prepareStatement(sql);
 			pstmt.setString(1, user.getEmail());
 			pstmt.setString(2, user.getPassword());
-			pstmt.setString(3, user.getName());
+			pstmt.setString(3, user.getPhone());
 			/*pstmt.setString(4, user.getAge());
 			pstmt.setString(5, user.getAddr());*/
-			pstmt.setString(4, user.getPhone());
+			pstmt.setString(4, user.getName());
 //			pstmt.setString(7, user.getGender());
 			result=pstmt.executeUpdate();
 			
@@ -91,7 +92,7 @@ public class UserInFoDao {
 				ui.setPassword(rs.getString("password"));
 				ui.setPhone(rs.getString("phone"));
 				ui.setName(rs.getString("name"));
-			} else System.out.println("�뾾�꽕");
+			} else System.out.println("email");
 			System.out.println("name ="+ui.getName());
 		} catch(Exception e) {
 			System.out.println(e.getMessage());

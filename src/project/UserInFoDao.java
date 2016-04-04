@@ -32,19 +32,11 @@ public class UserInFoDao {
 			pstmt=conn.prepareStatement(sql);
 			pstmt.setString(1, user.getEmail());
 			pstmt.setString(2, user.getPassword());
-<<<<<<< HEAD
 			pstmt.setString(3, user.getPhone());
 			/*pstmt.setString(4, user.getAge());
 			pstmt.setString(5, user.getAddr());*/
 			pstmt.setString(4, user.getName());
 //			pstmt.setString(7, user.getGender());
-=======
-			pstmt.setString(3, user.getName());
-			pstmt.setString(4, user.getAge());
-			pstmt.setString(5, user.getAddr());
-			pstmt.setString(6, user.getPhone());
-			pstmt.setString(7, user.getGender());
->>>>>>> 2c8d4fb4a225f349b59c34185286f73b1f1629fa
 			result=pstmt.executeUpdate();
 			
 		} catch (Exception e) {

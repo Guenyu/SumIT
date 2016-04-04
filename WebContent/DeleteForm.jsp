@@ -6,8 +6,10 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
 <link type="text/css" rel="stylesheet" href="comm.css">
+
 </head>
 <body>
+
 <h2>비밀번호를 입력하세요</h2>
 <form action="DeletePro.jsp">
    Password : <input type="password" name="password"><p>

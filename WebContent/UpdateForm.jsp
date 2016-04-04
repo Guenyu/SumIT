@@ -1,6 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8" import="project.*"%>
-
 <!DOCTYPE html>
 <html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
@@ -18,7 +17,7 @@
 	}
 </script></head>
 <body>
-<form action="UpdatePro.jsp" name="frm" onsubmit="return chk()">
+<form action="UpdatePro.do" name="frm" onsubmit="return chk()" method="post">
 <table border="1">
 	<caption>정보 수정</caption>
 	<tr><th>E-mail</th><td>${ui.email}<input type="hidden" name="email" value="${ui.email}"></td></tr>

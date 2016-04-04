@@ -1,0 +1,9 @@
+diff a/WebContent/CreateForm.jsp b/WebContent/CreateForm.jsp	(rejected hunks)
+@@ -29,6 +29,7 @@
+ 				<tr>
+ 					<th>E-mail</th>
+ 					<td colspan="2"><input type="email" required="required"
++						placeholder="e-mail" name="email">&nbsp; <input type="button" value="Redundancy check" onclick="select_member_check();" /></td>
+ 				</tr>
+ 				<tr>
+ 					<th>Password</th>

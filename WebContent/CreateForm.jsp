@@ -18,10 +18,10 @@
 <body>
 
 	<img alt="" src="images/CMlogohomebt.png" width="100" height="100"
-		onclick="location.href='../Cover.html'" onmouseover="">
+		onclick="location.href='Cover.jsp'" onmouseover="">
 	<div id="createForm1">
 		<img alt="" src="images/CMlogoom.png" width="200" height="200"
-			onclick="location.href='Menu.html'">
+			onclick="location.href='Cover.jsp'">
 	</div>
 	<form name="frm" onsubmit="return chk(n)">
 		<div id="createForm2">
@@ -51,7 +51,7 @@
 				<tr>
 					<td colspan="3" align="center">
 						<button onclick="chk(1)">확인</button> &nbsp
-						<button onclick="location.href='Menu.html'">취소</button>
+						<button onclick="location.href='Cover.jsp'">취소</button>
 					</td>
 				</tr>
 			</table>

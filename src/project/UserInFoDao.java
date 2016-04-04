@@ -7,7 +7,7 @@ import javax.sql.*;
 public class UserInFoDao {
 	private static UserInFoDao instance; // = new MemberDao();
 	private UserInFoDao() {}
-	public static UserInFoDao getInstance() {//�̱��� ����,�̱��� ���ϸ� ��ü�� ��� ȣ��
+	public static UserInFoDao getInstance() {//占싱깍옙占쏙옙 占쏙옙占쏙옙,占싱깍옙占쏙옙 占쏙옙占싹몌옙 占쏙옙체占쏙옙 占쏙옙占� 호占쏙옙
 		if(instance==null) instance=new UserInFoDao();
 		return instance;
 	}
@@ -25,17 +25,17 @@ public class UserInFoDao {
 	public int insert(UserInFo user) throws SQLException{
 		int result=0; Connection conn=null;
 		PreparedStatement pstmt=null;
-		String sql="insert into UserInFo values(?,?,?,?,?)";
+		String sql="insert into UserInFo values(?,?,?,?,?,?,?)";
 		try {
 			conn=getConnection();
 			pstmt=conn.prepareStatement(sql);
 			pstmt.setString(1, user.getEmail());
 			pstmt.setString(2, user.getPassword());
-			pstmt.setString(3, user.getPhone());
-//			pstmt.setString(4, user.getAddrs1());
-//			pstmt.setString(5, user.getAddrs2());
-			pstmt.setString(4, user.getName());
-//			pstmt.setString(5, user.getGender());
+			pstmt.setString(3, user.getName());
+			pstmt.setString(4, user.getAge());
+			pstmt.setString(5, user.getAddr());
+			pstmt.setString(6, user.getPhone());
+			pstmt.setString(7, user.getGender());
 			result=pstmt.executeUpdate();
 			
 		} catch (Exception e) {
@@ -50,12 +50,15 @@ public class UserInFoDao {
 		int result = 0; Connection conn = null;
 		PreparedStatement pstmt = null; ResultSet rs = null;
 		String sql = "select password from UserInFo where email = ?";
+		System.out.println("email = "+email);
+		System.out.println("password = "+password);
 		try { conn = getConnection();
 			pstmt  = conn.prepareStatement(sql);
 			pstmt.setString(1, email);
 			rs = pstmt.executeQuery();
 			if (rs.next()) {
 				String dbPass = rs.getString(1);
+				System.out.println("dbpassword = "+dbPass);
 				if (dbPass.equals(password)) result = 1;
 				else result = 0;
 			} else result = -1;
@@ -71,7 +74,7 @@ public class UserInFoDao {
 		}
 		return result;
 	}
-	public UserInFo select(String email) throws SQLException {
+	public UserInFo select(String email) {
 		System.out.println("email = "+email);
 		Connection conn = null;
 		PreparedStatement pstmt = null;
@@ -88,17 +91,19 @@ public class UserInFoDao {
 				ui.setPassword(rs.getString("password"));
 				ui.setPhone(rs.getString("phone"));
 				ui.setName(rs.getString("name"));
-			} else System.out.println("없네");
+			} else System.out.println("�뾾�꽕");
 			System.out.println("name ="+ui.getName());
 		} catch(Exception e) {
 			System.out.println(e.getMessage());
 		} finally {
-			if (rs != null)
-				rs.close();
-			if (pstmt != null)
-				pstmt.close();
-			if (conn != null)
-				conn.close();
+			try {				
+				if (rs != null)
+					rs.close();
+				if (pstmt != null)
+					pstmt.close();
+				if (conn != null)
+					conn.close();
+			} catch (Exception e) { }
 		}
 		return ui;
 	}
@@ -125,15 +130,17 @@ public class UserInFoDao {
 		}
 		return result;
 	}
-	public int delete(String email) throws SQLException {
-	      int result = 0;
+	public int delete(String password) throws SQLException {
+	     System.out.println(password); 
+		 int result = 0;
 	      Connection conn = null;
 	      PreparedStatement pstmt = null;
-	      String sql = "delete from UserInFo where email=?";
+	      String sql = "delete from UserInFo where password=?";
 	      try {
 	         conn = getConnection();
 	         pstmt = conn.prepareStatement(sql);
-	         pstmt.setString(1, email);
+	         pstmt.setString(1, password);
+	         System.out.println(password);
 	         result = pstmt.executeUpdate();
 	      } catch (Exception e) {
 	         System.out.println(e.getMessage());

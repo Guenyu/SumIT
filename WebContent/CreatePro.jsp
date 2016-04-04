@@ -16,7 +16,7 @@
 	if (result >0) response.sendRedirect("LoginForm.jsp");
 	else { %>
 <script type="text/javascript">
-	alert("다시시도해주십시오");  history.go(-1);
+	alert("잘해 !");  history.go(-1);
 </script>
 <% } %>
 </body>

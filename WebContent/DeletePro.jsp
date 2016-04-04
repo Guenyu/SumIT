@@ -13,9 +13,9 @@
 	UserInFoDao ud = UserInFoDao.getInstance();
 	int chk = ud.loginchk(email, password); 
 	if (chk == 1) { 
-	   int result = ud.delete(email);
+	   int result = ud.delete(password);
 	   if (result > 0) {
-	      session.invalidate();
+	
 %>
    <script type="text/javascript">
       alert("안녕히....ㅠㅠ");

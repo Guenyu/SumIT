@@ -50,12 +50,15 @@ public class UserInFoDao {
 		int result = 0; Connection conn = null;
 		PreparedStatement pstmt = null; ResultSet rs = null;
 		String sql = "select password from UserInFo where email = ?";
+		System.out.println("email = "+email);
+		System.out.println("password = "+password);
 		try { conn = getConnection();
 			pstmt  = conn.prepareStatement(sql);
 			pstmt.setString(1, email);
 			rs = pstmt.executeQuery();
 			if (rs.next()) {
 				String dbPass = rs.getString(1);
+				System.out.println("dbpassword = "+dbPass);
 				if (dbPass.equals(password)) result = 1;
 				else result = 0;
 			} else result = -1;
@@ -127,15 +130,17 @@ public class UserInFoDao {
 		}
 		return result;
 	}
-	public int delete(String email) throws SQLException {
-	      int result = 0;
+	public int delete(String password) throws SQLException {
+	     System.out.println(password); 
+		 int result = 0;
 	      Connection conn = null;
 	      PreparedStatement pstmt = null;
-	      String sql = "delete from UserInFo where email=?";
+	      String sql = "delete from UserInFo where password=?";
 	      try {
 	         conn = getConnection();
 	         pstmt = conn.prepareStatement(sql);
-	         pstmt.setString(1, email);
+	         pstmt.setString(1, password);
+	         System.out.println(password);
 	         result = pstmt.executeUpdate();
 	      } catch (Exception e) {
 	         System.out.println(e.getMessage());

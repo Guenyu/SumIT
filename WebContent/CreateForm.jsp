@@ -16,6 +16,9 @@
 		} */
 		return true;
 	}
+	function emailcheck() {
+		window.open("emailcheck.jsp?email="+frm.email.value,"","width=300 height = 300");
+	}
 </script>
 </head>
 <body>
@@ -38,7 +41,7 @@
 					<th>E-mail</th>
 					<td colspan="2"><input type="email" required="required"
 						placeholder="e-mail" name="email"></td>
-					<td>&nbsp; <input type="button" value="Redundancy check" onclick="select_member_check();" />
+					<td>&nbsp; <input type="button" value="Redundancy check" onclick="emailcheck()">
 					</td>
 				</tr>
 				<tr>

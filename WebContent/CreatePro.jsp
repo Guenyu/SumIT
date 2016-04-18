@@ -11,12 +11,15 @@
 <jsp:useBean id="user" class="project.UserInFo"></jsp:useBean>
 <jsp:setProperty property="*" name="user"/>
 <%
+	String id = request.getParameter("ID");
+	System.out.println(id);
+	user.setId(id);
 	UserInFoDao uf=UserInFoDao.getInstance();
 	int result = uf.insert(user); 
 	if (result >0) response.sendRedirect("LoginForm.jsp");
 	else { %>
 <script type="text/javascript">
-	alert("잘해 !");  history.go(-1);
+	alert("입력이 잘못되었습니다.");  history.go(-1);
 </script>
 <% } %>
 </body>

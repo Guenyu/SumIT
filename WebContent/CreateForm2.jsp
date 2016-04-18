@@ -66,6 +66,7 @@
 </script>
 </head>
 <body>
+
 	<img alt="" src="images/CMlogohomebt.png" width="100" height="100"
 		onclick="location.href='Cover.jsp'" onmouseover="">
 	<div id="createForm1">
@@ -114,7 +115,7 @@
 				</tr>
 				<tr>
 					<td colspan="3" align="center">
-						<button onclick="chk()">확인</button> &nbsp
+						<button onclick="CreatePro.jsp">확인</button> &nbsp
 						<button onclick="location.href='Cover.jsp'">취소</button>
 					</td>
 				</tr>

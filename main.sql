@@ -1,11 +1,12 @@
 create table UserInFo(
+	name varchar2(30) not null,--이름
 	email varchar2(30) primary key,--이메일
+	ID varchar2(15) not null, -- ID
 	password varchar2(30) not null,--비밀번호
-	phone varchar2(20) not null,--전화번호
-	age varchar2(30) not null,--생년월일
-	addr varchar2(50),--주소
-	name varchar2(15) not null,--이름
-	gender char(1) not null--성별
+	phone varchar2(20) not null--전화번호
+	-- age varchar2(30) not null,--생년월일
+	-- addr varchar2(50),--주소
+	-- gender char(1) not null--성별
 );
 select * from UserInFo;
 drop table UserInFo;
